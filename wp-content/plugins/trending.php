@@ -12,6 +12,9 @@ class trending extends WP_Widget {
     $this->WP_Widget( 'trending', 'Trending Articles', $widget_ops, $control_ops ); // Create the widget
   }
 
+  function widget($args, $instance) {
+    echo "<p style='color: pink;'>Here are te trending articles</p>";
+  }
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("trending");'));
