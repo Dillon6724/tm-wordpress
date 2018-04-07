@@ -13,8 +13,8 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
-    $key = getenv(TM_PARSLEY_KEY);
-    $secret = getenv(TM_PARSLEY_SECRET);
+    $key = getenv('TM_PARSLEY_KEY');
+    $secret = getenv('TM_PARSLEY_SECRET');
     // create curl resource
     $ch = curl_init();
     // set url
