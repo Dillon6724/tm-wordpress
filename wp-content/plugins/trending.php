@@ -13,18 +13,19 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
-    // $key = getenv(TM_PARSLEY_KEY)
-    // $secret = getenv(TM_PARSLEY_SECRET)
-    // // create curl resource
-    // $ch = curl_init();
-    // // set url
-    // curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=$key&secret=$secret&page=1&limit=10&sort=views&period_start=1w");
-    // // $output contains the output json
-    // $output = curl_exec($ch);
-    // // close curl resource to free up system resources
-    // curl_close($ch);
-    // // {"name":"Baron","gender":"male","probability":0.88,"count":26}
-    // echo var_dump(json_decode($output, true));  }
+    $key = getenv(TM_PARSLEY_KEY);
+    $secret = getenv(TM_PARSLEY_SECRET);
+    // create curl resource
+    $ch = curl_init();
+    // set url
+    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=", $key, "&secret=", $secret, "&page=1&limit=10&sort=views&period_start=1w");
+    // $output contains the output json
+    $output = curl_exec($ch);
+    // close curl resource to free up system resources
+    curl_close($ch);
+    // {"name":"Baron","gender":"male","probability":0.88,"count":26}
+    echo var_dump(json_decode($output, true));
+  }
 }
 
 add_action('widgets_init', create_function('', 'return register_widget("trending");'));
