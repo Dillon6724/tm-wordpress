@@ -25,7 +25,7 @@ class trending extends WP_Widget {
     curl_close($ch);
     // {"name":"Baron","gender":"male","probability":0.88,"count":26}
     // echo var_dump(json_decode($output, true));
-    echo $key;
+    echo "my key is: ", $key;
   }
 }
 
