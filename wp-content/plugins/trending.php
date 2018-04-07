@@ -24,8 +24,7 @@ class trending extends WP_Widget {
     // close curl resource to free up system resources
     curl_close($ch);
     // {"name":"Baron","gender":"male","probability":0.88,"count":26}
-    // echo var_dump(json_decode($output, true));
-    echo "my key is: ", $key;
+    echo var_dump(json_decode($output, true));
   }
 }
 
