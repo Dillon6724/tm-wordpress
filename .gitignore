@@ -30,8 +30,6 @@
 # mu-plugins, plugins, and themes directories
 wp-content/*
 !wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
 
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
