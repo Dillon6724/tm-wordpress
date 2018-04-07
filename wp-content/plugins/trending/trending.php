@@ -1,1 +1,6 @@
-hello
+
+<?php
+/*
+Plugin Name: Trending Articles
+*/
+?>
