@@ -18,7 +18,7 @@ class trending extends WP_Widget {
     // create curl resource
     $ch = curl_init();
     // set url
-    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=", $key, "&secret=", $secret, "&page=1&limit=10&sort=views&period_start=1w");
+    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=10&sort=views&period_start=1w");
     // $output contains the output json
     $output = curl_exec($ch);
     // close curl resource to free up system resources
