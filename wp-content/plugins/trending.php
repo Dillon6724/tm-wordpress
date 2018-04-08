@@ -13,6 +13,11 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
+    $response = $this->get_parsley_data();
+    echo $response;
+  }
+
+  function get_parsley_data() {
     $key = getenv('TM_PARSELY_KEY');
     $secret = getenv('TM_PARSELY_SECRET');
     // create curl resource
@@ -23,8 +28,7 @@ class trending extends WP_Widget {
     $output = curl_exec($ch);
     // close curl resource to free up system resources
     curl_close($ch);
-    // {"name":"Baron","gender":"male","probability":0.88,"count":26}
-    echo var_dump(json_decode($output, true));
+    return var_dump(json_decode($output, true));
   }
 }
 
