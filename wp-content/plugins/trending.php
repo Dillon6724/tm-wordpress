@@ -12,11 +12,14 @@ class trending extends WP_Widget {
     $this->WP_Widget( 'trending', 'Trending Articles', $widget_ops, $control_ops ); // Create the widget
   }
 
-  function widget($args, $instance) {
+  function widget() {
     $response = $this->get_parsley_data();
-    foreach ($response->data as $article) {
-      echo $article->title;
-    }
+    foreach ($response->data as $article) { ?>
+      <h1>01</h1>
+      <img src=<?php echo $article->image_url; ?>>
+      <h3><?php echo $article->title; ?></h3>
+      <h6><?php echo $article->author; ?></h6>
+    <?php }
   }
 
   function get_parsley_data() {
