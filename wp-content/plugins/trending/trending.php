@@ -24,7 +24,7 @@ class trending extends WP_Widget {
         <h3><?php echo $article->title; ?></h3>
         <h6><?php echo $article->author; ?></h6>
       </div>
-    <?php i++; }
+    <?php $ranking++; }
   }
 
   function get_parsley_data() {
