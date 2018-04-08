@@ -25,7 +25,7 @@ class trending extends WP_Widget {
 
     $titles = "Titles: ";
     foreach ($response->$data as $article) {
-       $titles.$article->title;
+       $titles.$articles->$title;
     }
     echo $titles;
   }
