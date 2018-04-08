@@ -22,11 +22,11 @@ class trending extends WP_Widget {
     $output = curl_exec($ch);
     curl_close($ch);
     $response = json_decode($output, true);
-    // $titles = "Titles: ";
+    $titles = "Titles: ";
     // foreach ($response->data as $article) {
     //   $titles.$article->title;
     // }
-    echo $response;
+    echo $titles;
   }
 
   function get_parsley_data() {
