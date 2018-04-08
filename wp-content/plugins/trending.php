@@ -13,6 +13,13 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
+    $response = $this->get_parsley_data;
+    foreach ($response->data as $article) {
+      echo $article->title;
+    }
+  }
+
+  function get_parsley_data() {
     $key = getenv('TM_PARSELY_KEY');
     $secret = getenv('TM_PARSELY_SECRET');
     // curl things
@@ -21,18 +28,7 @@ class trending extends WP_Widget {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
     curl_close($ch);
-    $response = json_decode($output);
-    $titles = "Titles: ";
-
-    foreach ($response->data as $article) {
-      echo $article->title;
-    }
-
-    echo count($response->data);
-  }
-
-  function get_parsley_data() {
-
+    return json_decode($output);
   }
 }
 
