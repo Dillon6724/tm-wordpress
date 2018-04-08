@@ -19,9 +19,9 @@ class trending extends WP_Widget {
     for ($i=0; $i < count($response->data); $i++) { ?>
       <div class="trending-container">
         <h1><?php echo $i; ?></h1>
-        <img src=<?php echo $response->data[$i]['image_url']; ?>
-        <h3><?php echo $response->data[$i]['title']; ?></h3>
-        <h6><?php echo $response->data[$i]['author']; ?></h6>
+        <img src=<?php echo $response['data'][$i]['image_url']; ?>>
+        <h3><?php echo $response['data'][$i]['title']; ?></h3>
+        <h6><?php echo $response['data'][$i]['author']; ?></h6>
       </div>
     <?php }
   }
