@@ -16,7 +16,7 @@ class trending extends WP_Widget {
 
   function widget() {
     $response = $this->get_parsley_data();
-    for ($i=0; $i < count($response->data); $i++) { ?>
+    for ($i=0; $i < 10; $i++) { ?>
       <div class="trending-container">
         <h1><?php echo $i; ?></h1>
         <img src=<?php echo $response['data'][$i]['image_url']; ?>>
