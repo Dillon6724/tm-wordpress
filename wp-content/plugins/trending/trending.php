@@ -18,7 +18,7 @@ class trending extends WP_Widget {
     $response = $this->get_parsley_data();
     $ranking = 1;
     foreach ($response->data as $article) { ?>
-      <a class="trending-container" href="<?php echo $article->link; ?>">
+      <a class="trending-container" href=<?php echo $article->link; ?>>
         <h1><?php echo $ranking; ?></h1>
         <img src=<?php echo $article->image_url; ?>>
         <h3><?php echo $article->title; ?></h3>
