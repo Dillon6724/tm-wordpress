@@ -3,6 +3,7 @@
 /*
 Plugin Name: Trending Articles
 */
+include 'styles.css';
 
 class trending extends WP_Widget {
 
@@ -15,10 +16,12 @@ class trending extends WP_Widget {
   function widget() {
     $response = $this->get_parsley_data();
     foreach ($response->data as $article) { ?>
-      <h1>01</h1>
-      <img src=<?php echo $article->image_url; ?>>
-      <h3><?php echo $article->title; ?></h3>
-      <h6><?php echo $article->author; ?></h6>
+      <div class="trending-container">
+        <h1>01</h1>
+        <img src=<?php echo $article->image_url; ?>>
+        <h3><?php echo $article->title; ?></h3>
+        <h6><?php echo $article->author; ?></h6>
+      </div>
     <?php }
   }
 
