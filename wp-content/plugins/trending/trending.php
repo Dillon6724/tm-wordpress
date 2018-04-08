@@ -1,9 +1,10 @@
-
+<style>
+<?php include 'style.css'; ?>
+</style>
 <?php
 /*
 Plugin Name: Trending Articles
 */
-include 'styles.css';
 
 class trending extends WP_Widget {
 
