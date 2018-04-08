@@ -16,14 +16,16 @@ class trending extends WP_Widget {
 
   function widget() {
     $response = $this->get_parsley_data();
-    for ($i=0; $i < 10; $i++) { ?>
+    $ranking = 1;
+    foreach ($response->data as $article) { ?>
       <div class="trending-container">
-        <h1><?php echo $i; ?></h1>
-        <img src=<?php echo $response['data'][$i]['image_url']; ?>>
-        <h3><?php echo $response['data'][$i]['title']; ?></h3>
-        <h6><?php echo $response['data'][$i]['author']; ?></h6>
+        <h1><?php $ranking ?></h1>
+        <img src=<?php echo $article->image_url; ?>>
+        <h3><?php echo $article->title; ?></h3>
+        <h6><?php echo $article->author; ?></h6>
       </div>
-    <?php }
+    <?php i++;
+    }
   }
 
   function get_parsley_data() {
