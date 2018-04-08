@@ -15,17 +15,17 @@ class trending extends WP_Widget {
   function widget($args, $instance) {
     $key = getenv('TM_PARSELY_KEY');
     $secret = getenv('TM_PARSELY_SECRET');
-    // create curl resource
+    // curl things
     $ch = curl_init();
-    // set url
     curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=10&sort=views&period_start=1w");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    // $output contains the output json
     $output = curl_exec($ch);
-    // close curl resource to free up system resources
     curl_close($ch);
     $response = json_decode($output, true);
-    echo "Hello";
+
+    foreach ($response->$data as $article) {
+      echo "$article <br>";
+    }
   }
 
   function get_parsley_data() {
