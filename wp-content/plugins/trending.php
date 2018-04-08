@@ -23,7 +23,7 @@ class trending extends WP_Widget {
     curl_close($ch);
     $response = json_decode($output, true);
 
-    $titles = "Titles: "
+    $titles = "Titles: ";
     foreach ($response->$data as $article) {
        $titles.$article->title;
     }
