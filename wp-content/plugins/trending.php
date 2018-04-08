@@ -24,7 +24,11 @@ class trending extends WP_Widget {
     $response = json_decode($output);
     $titles = "Titles: ";
 
-    echo $response->data;
+    foreach ($response->data as $article) {
+      $titles.$article->title;
+    }
+
+    echo $titles;
   }
 
   function get_parsley_data() {
