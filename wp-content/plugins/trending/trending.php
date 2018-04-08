@@ -18,12 +18,12 @@ class trending extends WP_Widget {
     $response = $this->get_parsley_data();
     $ranking = 1;
     foreach ($response->data as $article) { ?>
-      <div class="trending-container">
+      <a class="trending-container" href="<?php $article->link; ?>">
         <h1><?php echo $ranking; ?></h1>
         <img src=<?php echo $article->image_url; ?>>
         <h3><?php echo $article->title; ?></h3>
         <h6><?php echo $article->author; ?></h6>
-      </div>
+      </a>
     <?php $ranking++; }
   }
 
