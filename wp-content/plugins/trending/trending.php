@@ -19,10 +19,10 @@ class trending extends WP_Widget {
     $ranking = 1;
     foreach ($response->data as $article) { ?>
       <a class="trending-container" href=<?php echo $article->link; ?>>
-        <h1><?php echo $ranking; ?></h1>
+        <div><?php echo $ranking; ?></div>
         <img src=<?php echo $article->image_url; ?>>
-        <h3><?php echo $article->title; ?></h3>
-        <h6><?php echo $article->author; ?></h6>
+        <div><?php echo $article->title; ?></div>
+        <div><?php echo $article->author; ?></div>
       </a>
     <?php $ranking++; }
   }
