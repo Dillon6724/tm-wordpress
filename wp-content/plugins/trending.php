@@ -28,7 +28,7 @@ class trending extends WP_Widget {
       $titles.$article->title;
     }
 
-    echo $titles;
+    echo count($response->data);
   }
 
   function get_parsley_data() {
