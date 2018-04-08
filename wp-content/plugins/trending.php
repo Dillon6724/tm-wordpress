@@ -32,7 +32,7 @@ class trending extends WP_Widget {
     $output = curl_exec($ch);
     // close curl resource to free up system resources
     curl_close($ch);
-    return var_dump(json_decode($output, true));
+    var_dump(json_decode($output, true));
   }
 }
 
