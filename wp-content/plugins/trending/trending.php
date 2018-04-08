@@ -1,5 +1,5 @@
 <style>
-<?php include 'style.css'; ?>
+  <?php include 'styles.css'; ?>
 </style>
 <?php
 /*
