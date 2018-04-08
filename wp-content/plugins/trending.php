@@ -21,7 +21,7 @@ class trending extends WP_Widget {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
     curl_close($ch);
-    $response = json_decode($output, true);
+    $response = json_decode($output, false);
     $titles = "Titles: ";
     // foreach ($response->data as $article) {
     //   $titles.$article->title;
