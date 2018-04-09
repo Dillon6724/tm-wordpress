@@ -1,8 +1,9 @@
 .trending-widget-container {
-  overflow: scroll;
   width: 100%;
   height: 320px;
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .trending-article-container {
@@ -14,6 +15,7 @@
   font-weight: bold;
   border-right: 2px solid #cecece;
   padding-left: 28px;
+  flex: 0 0 auto;
 }
 
 .ranking {
@@ -23,6 +25,10 @@
 .author {
   color: grey;
   font-size: 13px;
+}
+
+.title {
+  white-space: normal;
 }
 
 .title:hover {
