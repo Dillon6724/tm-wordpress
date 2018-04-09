@@ -1,9 +1,12 @@
-.trending-container {
+.article-container {
   display: inline-block;
-  width: 225px;
+  height: 375px;
+  width: 210px;
   color: black;
   vertical-align: top;
   font-weight: bold;
+  border-right: 2px solid #cecece;
+  padding-left: 17px;
 }
 
 .ranking {
