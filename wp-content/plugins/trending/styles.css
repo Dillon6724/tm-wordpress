@@ -1,4 +1,20 @@
 .trending-container {
   display: inline-block;
   width: 225px;
+  color: black;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+.ranking {
+  font-size: 50px;
+}
+
+.author {
+  color: grey;
+  font-size: 13px;
+}
+
+.title:hover {
+  text-decoration: underline;
 }
