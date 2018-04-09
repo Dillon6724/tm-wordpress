@@ -1,4 +1,11 @@
-.article-container {
+.trending-widget-container {
+  overflow: scroll;
+  width: 100%;
+  height: 320px;
+  white-space: nowrap;
+}
+
+.trending-article-container {
   display: inline-block;
   height: 375px;
   width: 210px;
@@ -6,7 +13,7 @@
   vertical-align: top;
   font-weight: bold;
   border-right: 2px solid #cecece;
-  padding-left: 17px;
+  padding-left: 28px;
 }
 
 .ranking {
