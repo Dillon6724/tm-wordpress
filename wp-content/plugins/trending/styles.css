@@ -33,3 +33,7 @@
 .title:hover {
   text-decoration: underline;
 }
+
+.treding-widget-title {
+  font-size: 30px;
+}
