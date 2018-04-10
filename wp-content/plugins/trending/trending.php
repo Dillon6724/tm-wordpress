@@ -17,7 +17,7 @@ class trending extends WP_Widget {
   function widget($args, $instance) {
     extract( $args );
     $article_max = $instance[ 'article-max' ];
-    (! empty( $instance['article-max'] ) ) { $article_max = 10 }
+    (! empty( $instance['article-max'] ) ) { $article_max = 10 };
     $response = $this->get_parsley_data($article_max);
     $ranking = 1;
     echo var_dump($article_max);
