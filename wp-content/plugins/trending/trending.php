@@ -50,7 +50,7 @@ class trending extends WP_Widget {
   }
 
   function form($instance) {
-    ?><input type="number" name="article-max" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
+    ?><input type="number" name="<?php echo $this->get_field_name('article-max'); ?>" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
   }
 }
 
