@@ -53,9 +53,9 @@ class trending extends WP_Widget {
   }
 
   function form($instance) {
-    echo var_dump($instance);
     $defaults = array( 'article-max' => 10);
-    $instance = wp_parse_args( (array) $instance, $defaults );?>
+    $instance = wp_parse_args( (array) $instance, $defaults );
+    echo var_dump($instance);?>
     <label for="<?php echo $this->get_field_id('title'); ?>">How many articles:</label>
     <input id="<?php echo $this->get_field_id( 'title' ); ?>" type="text" name="<?php echo $this->get_field_name('article-max'); ?>" value="<?php echo $instance['article-max']; ?>"><?php
   }
