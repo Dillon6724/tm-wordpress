@@ -20,6 +20,7 @@ class trending extends WP_Widget {
     $response = $this->get_parsley_data($article_max);
     $ranking = 1;
     echo var_dump($args);
+    echo $before_widget;
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
@@ -30,6 +31,7 @@ class trending extends WP_Widget {
       </a>
     <?php $ranking++; }
     ?></div><?php
+    echo $after_widget;
   }
 
   function get_parsley_data($article_max) {
@@ -46,7 +48,7 @@ class trending extends WP_Widget {
 
   function update($new_instance) {
     $instance = array();
-    $instance['article-max'] = htmlentities($new_instance['article-max']);
+    $instance['article-max'] = strip_tags($new_instance['article-max']);
     return $instance;
   }
 
