@@ -42,7 +42,7 @@ class trending extends WP_Widget {
   }
 
   function form($instance) {
-    echo "<h1>This is my new control panel</h1>";
+    ?><input type="number" name="article-max" min="1" max="5"><?php
   }
 }
 
