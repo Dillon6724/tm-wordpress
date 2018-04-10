@@ -15,6 +15,7 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
+    extract( $args );
     $response = $this->get_parsley_data(20);
     $ranking = 1;
     $test = $instance;
