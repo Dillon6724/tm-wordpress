@@ -51,6 +51,8 @@ class trending extends WP_Widget {
   }
 
   function form($instance) {
+    $defaults = array( 'article-max' => 10);
+    $instance = wp_parse_args( (array) $instance, $defaults ); ?>
     ?><input type="number" name="<?php echo $this->get_field_name('article-max'); ?>" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
   }
 }
