@@ -16,10 +16,10 @@ class trending extends WP_Widget {
 
   function widget($args, $instance) {
     extract( $args );
-    $article_max = $args;
+    $article_max = $instance;
     $response = $this->get_parsley_data($article_max);
     $ranking = 1;
-    echo "MAXXX: ".$article_max;
+    echo "MAXXX: ".var_dump($instance);
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
