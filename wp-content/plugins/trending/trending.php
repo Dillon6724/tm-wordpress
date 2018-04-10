@@ -44,8 +44,9 @@ class trending extends WP_Widget {
     return json_decode($output);
   }
 
-  function update($new_instance, $old_instance) {
-    $instance['article-max'] = strip_tags($new_instance['article-max']);
+  function update($new_instance) {
+    $instance = array();
+    $instance['article-max'] = htmlentities($new_instance['article-max']);
     return $instance;
   }
 
