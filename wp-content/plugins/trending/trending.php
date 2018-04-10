@@ -14,8 +14,8 @@ class trending extends WP_Widget {
     $this->WP_Widget( 'trending', 'Trending Articles', $widget_ops, $control_ops ); // Create the widget
   }
 
-  function widget() {
-    $response = $this->get_parsley_data();
+  function widget($args, $instance) {
+    $response = $this->get_parsley_data(20);
     $ranking = 1;
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
@@ -29,20 +29,25 @@ class trending extends WP_Widget {
     ?></div><?php
   }
 
-  function get_parsley_data() {
+  function get_parsley_data($article_max) {
     $key = getenv('TM_PARSELY_KEY');
     $secret = getenv('TM_PARSELY_SECRET');
     // curl things
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=10&sort=views&period_start=1w");
+    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=".$article_max."&sort=views&period_start=1w");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
     curl_close($ch);
     return json_decode($output);
   }
 
+  function update($new_instance, $old_instance) {
+    $instance['article-max'] = $new_instance['article-max'];
+    return $instance;
+  }
+
   function form($instance) {
-    ?><input type="number" name="article-max" min="1" max="5"><?php
+    ?><input type="number" name="article-max" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
   }
 }
 
