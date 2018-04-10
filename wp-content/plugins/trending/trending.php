@@ -45,7 +45,7 @@ class trending extends WP_Widget {
   }
 
   function update($new_instance, $old_instance) {
-    $instance['article-max'] = $new_instance['article-max'];
+    $instance['article-max'] = strip_tags($new_instance['article-max']);
     return $instance;
   }
 
