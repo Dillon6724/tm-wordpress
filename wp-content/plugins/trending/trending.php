@@ -16,7 +16,7 @@ class trending extends WP_Widget {
 
   function widget($args, $instance) {
     extract( $args );
-    $article_max = $instance['article-max'];
+    $article_max = $instance['article-max'] || 10;
     $response = $this->get_parsley_data($article_max);
     $ranking = 1;
     echo $test;
@@ -52,8 +52,9 @@ class trending extends WP_Widget {
 
   function form($instance) {
     $defaults = array( 'article-max' => 10);
-    $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-    ?><input type="number" name="<?php echo $this->get_field_name('article-max'); ?>" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
+    $instance = wp_parse_args( (array) $instance, $defaults );?>
+    <label for="<?php echo $this->get_field_id('title'); ?>">How many articles:</label>
+    <input type="number" name="<?php echo $this->get_field_name('article-max'); ?>" min="1" max="5" value="<?php echo $instance['article-max']; ?>"><?php
   }
 }
 
