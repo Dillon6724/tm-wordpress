@@ -41,10 +41,6 @@ class trending extends WP_Widget {
     return json_decode($output);
   }
 
-  function form($instance) {
-    echo "<h1>this is in my control panel</h1>";
-  }
-
 
 add_action('widgets_init', create_function('', 'return register_widget("trending");'));
 
