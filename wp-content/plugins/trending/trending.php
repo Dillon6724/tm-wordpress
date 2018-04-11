@@ -17,7 +17,7 @@ class trending extends WP_Widget {
   function widget($args, $instance) {
     extract( $args );
     $title = apply_filters('widget_title', $instance['title']); // the widget title
-    $response = $this->get_parsley_data($article_max);
+    $response = $this->get_parsley_data();
     $ranking = 1;
     echo $before_widget;
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
@@ -33,12 +33,12 @@ class trending extends WP_Widget {
     echo $after_widget;
   }
 
-  function get_parsley_data($article_max) {
+  function get_parsley_data() {
     $key = getenv('TM_PARSELY_KEY');
     $secret = getenv('TM_PARSELY_SECRET');
     // curl things
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=".$article_max."&sort=views&period_start=1w");
+    curl_setopt($ch, CURLOPT_URL, "https://api.parsely.com/v2/analytics/posts?apikey=".$key."&secret=".$secret."&page=1&limit=10&sort=views&period_start=1w");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
     curl_close($ch);
