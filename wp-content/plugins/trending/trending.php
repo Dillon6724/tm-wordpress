@@ -16,8 +16,7 @@ class trending extends WP_Widget {
 
   function widget($args, $instance) {
     extract( $args );
-    $article_max = $instance[ 'article-max' ];
-    (empty( $instance['article-max'] ) ) { $article_max = 10 };
+    $title = apply_filters('widget_title', $instance['title']); // the widget title
     $response = $this->get_parsley_data($article_max);
     $ranking = 1;
     echo $before_widget;
@@ -46,17 +45,17 @@ class trending extends WP_Widget {
     return json_decode($output);
   }
 
-  function update($new_instance) {
-    $instance = array();
-    $instance['article-max'] = strip_tags($new_instance['article-max']);
+  function update($new_instance, $old_instance) {
+    $instance['title'] = strip_tags($new_instance['title']);
     return $instance;
   }
 
   function form($instance) {
-    $defaults = array( 'article-max' => 10);
+    $defaults = array( 'title' => 'Upcoming Posts');
     $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-    <label for="<?php echo $this->get_field_id('title'); ?>">How many articles:</label>
-    <input id="<?php echo $this->get_field_id( 'title' ); ?>" type="text" name="<?php echo $this->get_field_name('article-max'); ?>" value="<?php echo $instance['article-max']; ?>"><?php
+
+    <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
+    <input class="widefat" id="<?php echo $this-/>get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>'" value="<?php echo $instance['title']; ?>" /><?php
   }
 }
 
