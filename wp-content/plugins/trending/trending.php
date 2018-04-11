@@ -35,10 +35,10 @@ class trending extends WP_Widget {
         <img src=<?php echo $article->image_url; ?>>
         <div class="title"><?php echo $article->title; ?></div>
         <div class="author"><?php echo $article->author; ?></div>
-      </a>
-    <?php $ranking++; }
-    ?></div>
-    <?php }
+      </a><?php
+     $ranking++;
+    }
+    ?></div><?php
     // After widget //
     echo $after_widget;
   }
