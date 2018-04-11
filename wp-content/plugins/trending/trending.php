@@ -4,6 +4,10 @@
 <?php
 /*
 Plugin Name: Trending Articles
+Plugin URI: https://github.com/Dillon6724/tm-wordpress/
+Description: Custom Trending Article WordPress Widget.
+Author: Dillon M.
+Version: 1
 */
 
 class trending extends WP_Widget {
