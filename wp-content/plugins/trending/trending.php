@@ -15,11 +15,11 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
-    extract( $args );
-    $title = apply_filters('widget_title', $instance['title']); // the widget title
+    $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'A new section', 'alliance' );
+    $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     $response = $this->get_parsley_data();
     $ranking = 1;
-    echo "my new title is".var_dump($instance);
+    echo "my new title is".$title;
     echo $before_widget;
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
@@ -48,15 +48,14 @@ class trending extends WP_Widget {
 
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
+    $instance['title'] = strip_tags( $new_instance['title'] );;
     return $instance;
   }
 
   function form($instance) {
-    $defaults = array( 'title' => 'Upcoming Posts');
-    $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-    <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
-    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" /><?php
+    $title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';?>
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+    <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
   }
 }
 
