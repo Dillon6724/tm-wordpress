@@ -14,7 +14,7 @@ class trending extends WP_Widget {
     $this->WP_Widget( 'trending', 'Trending Articles', $widget_ops, $control_ops ); // Create the widget
   }
 
-  function widget($args, $instance) {
+  function widget($instance) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : ' no title';
     $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
