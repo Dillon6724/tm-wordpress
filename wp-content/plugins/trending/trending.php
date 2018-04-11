@@ -17,16 +17,11 @@ class trending extends WP_Widget {
   function widget($args, $instance) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : ' no title';
     $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
     $response = $this->get_parsley_data();
     $ranking = 1;
 
     echo $before_widget;
-    echo "this is my title: ".$title;
-    // Title of widget //
-    if ( $title ) { echo $before_title . $title . $after_title; }?>
-
-    <div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
+    <div class="treding-widget-title"><?php echo $title;?></div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
         <div class="ranking"><?php echo $ranking; ?></div>
