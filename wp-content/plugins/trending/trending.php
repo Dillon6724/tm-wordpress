@@ -21,7 +21,14 @@ class trending extends WP_Widget {
     $response = $this->get_parsley_data();
     $ranking = 1;
     echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-    ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
+
+    echo $before_widget;
+    // Title of widget //
+    if ( $title ) { echo $before_title . $title . $after_title; }
+    // Widget output //
+    ?>
+
+    <div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
         <div class="ranking"><?php echo $ranking; ?></div>
@@ -30,7 +37,9 @@ class trending extends WP_Widget {
         <div class="author"><?php echo $article->author; ?></div>
       </a>
     <?php $ranking++; }
-    ?></div><?php
+    ?></div>
+    <?php }
+    // After widget //
     echo $after_widget;
   }
 
