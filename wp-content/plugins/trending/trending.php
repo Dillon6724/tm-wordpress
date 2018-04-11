@@ -6,6 +6,10 @@
 Plugin Name: Trending Articles
 */
 
+add_action('admin_menu', function() {
+    add_options_page( 'My awesome plugin settings', 'my awesome plugin', 'manage_options', 'my-awesome-plugin', 'my_awesome_plugin_page' );
+});
+
 class trending extends WP_Widget {
 
   function trending() {
