@@ -9,7 +9,7 @@ Plugin Name: Trending Articles
 class trending extends WP_Widget {
 
   function trending() {
-    $widget_ops = array( 'classname' => 'trending', 'description' => 'Displays your upcoming posts to tease your readers' ); // Widget Settings
+    $widget_ops = array( 'classname' => 'trending', 'description' => 'Displays your trending articles' ); // Widget Settings
     $control_ops = array( 'id_base' => 'trending' ); // Widget Control Settings
     $this->WP_Widget( 'trending', 'Trending Articles', $widget_ops, $control_ops ); // Create the widget
   }
@@ -20,8 +20,7 @@ class trending extends WP_Widget {
 
     $response = $this->get_parsley_data();
     $ranking = 1;
-    echo "my new title is".var_dump($args);
-    echo $args['before_widget'];
+    echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
     ?><div class="treding-widget-title">Trending Articles</div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
