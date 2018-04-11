@@ -53,9 +53,8 @@ class trending extends WP_Widget {
   function form($instance) {
     $defaults = array( 'title' => 'Upcoming Posts');
     $instance = wp_parse_args( (array) $instance, $defaults ); ?>
-
     <label for="<?php echo $this->get_field_id('title'); ?>">Title:</label>
-    <input class="widefat" id="<?php echo $this-/>get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>'" value="<?php echo $instance['title']; ?>" /><?php
+    <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" /><?php
   }
 }
 
