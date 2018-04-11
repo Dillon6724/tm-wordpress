@@ -48,7 +48,7 @@ class trending extends WP_Widget {
 
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
-    $instance['title'] = strip_tags( $new_instance['title'] );;
+    $instance['title'] = isset( $new_instance['title'] ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
     return $instance;
   }
 
