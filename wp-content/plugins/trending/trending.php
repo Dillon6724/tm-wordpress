@@ -19,8 +19,8 @@ class trending extends WP_Widget {
     $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
     $response = $this->get_parsley_data();
     $ranking = 1;
+    echo $before_widget;?>
 
-    echo $before_widget;
     <div class="treding-widget-title"><?php echo $title;?></div><div class="trending-widget-container"><?php
     foreach ($response->data as $article) { ?>
       <a class="trending-article-container" href=<?php echo $article->link; ?>>
