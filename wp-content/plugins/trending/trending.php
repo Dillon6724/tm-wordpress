@@ -15,8 +15,9 @@ class trending extends WP_Widget {
   }
 
   function widget($args, $instance) {
-    $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'A new section', 'alliance' );
+    $title = ! empty( $instance['title'] ) ? $instance['title'] : ' no title';
     $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
     $response = $this->get_parsley_data();
     $ranking = 1;
     echo "my new title is".$title;
